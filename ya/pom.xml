@@ -15,4 +15,41 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  <build>
+    <finalName>marelease</finalName>
+    <plugins>
+
+      <!-- download source code in Eclipse, best practice -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-eclipse-plugin</artifactId>
+        <version>1.8</version>
+        <configuration>
+          <downloadSources>true</downloadSources>
+          <downloadJavadocs>false</downloadJavadocs>
+        </configuration>
+      </plugin>
+
+      <!-- Set a JDK compiler level -->
+
+      <!-- Make this jar executable -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>1.8</version>
+        <configuration>
+          <!-- DO NOT include log4j.properties file in your Jar -->
+          <excludes>
+          <exclude>**/log4j.properties</exclude>
+          </excludes>
+          <archive>
+          <manifest>
+            <!-- Jar file entry point -->
+            <mainClass>App</mainClass>
+          </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>
