@@ -8,7 +8,7 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Version Minimal final" );
+        System.out.println( "Version Minimal ultime final" );
         System.out.println("max(4,5) : "+max(4,5));
     }
 
