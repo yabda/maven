@@ -1,6 +1,7 @@
 package ya;
 
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collection;
@@ -39,10 +40,13 @@ public class App {
 				for (String i : entry){ 
 					int nb = Integer.parseInt(i);
 					myMax=max(myMax,nb);
-			
 				}
 			}
+
+			CSVWriter writer = new CSVWriter (new FileWriter ("data_filtered.csv"),',',CSVWriter.NO_QUOTE_CHARACTER);
+			writer.writeNext(out.toArray(new String[0]));
 			System.out.println("le maximum est :"+myMax);
+			writer.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
